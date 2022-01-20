@@ -8,17 +8,17 @@ import org.junit.FixMethodOrder;
 
 import java.nio.file.Path;
 import java.io.IOException;
+
 import java.util.Arrays;
 import java.util.ArrayList;
 
 import in.kieransmith.exercise.FileIO;
-
 import in.kieransmith.exercise.NameList;
 import in.kieransmith.exercise.Name;
 import in.kieransmith.exercise.MalformedInputException;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class AppTests {
+public class AppIT {
     @Test
     public void NameListFromFile_ExpectOrderedNameList() throws IOException, MalformedInputException {
         // Arrange
@@ -35,7 +35,8 @@ public class AppTests {
         NameList actual = NameList.from(FileIO.read(inputPath)).sort();
 
         // Assert
-        assertTrue(desiredNameList.equals(actual));
+        assertTrue(String.format("%s should equal %s", desiredNameList.toString(), actual.toString()),
+                desiredNameList.equals(actual));
 
         // Clean
         inputPath.toFile().delete();
@@ -59,7 +60,8 @@ public class AppTests {
         ArrayList<String> actualNames = FileIO.read(filePath);
 
         // Assert
-        assertTrue(actualNames.equals(desiredNames));
+        assertTrue(String.format("%s should equal %s", actualNames.toString(), desiredNames.toString()),
+                actualNames.equals(desiredNames));
 
         // Clean
         filePath.toFile().delete();

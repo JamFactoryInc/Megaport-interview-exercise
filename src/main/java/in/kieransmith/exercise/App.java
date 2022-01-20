@@ -15,7 +15,7 @@ public class App {
     // NoSuchElementException was thrown after more than one call.
     // This is due to the scanner being closed elsewhere when reading a file
     // with FileIO.read()
-    public static Scanner userInputReader = new Scanner(System.in);
+    public static Scanner userInputReader;
 
     /**
      * Runs the app based on given args
@@ -23,6 +23,7 @@ public class App {
      * @param args optional file paths to sort
      */
     public static void main(String[] args) {
+        userInputReader = new Scanner(System.in);
 
         if (args.length == 0) {
             run(promptForInput("Please enter a file path to sort:",
@@ -43,6 +44,8 @@ public class App {
      * @param arg the path to sort
      */
     public static void run(String arg) {
+        if (arg.equals("exit"))
+            return;
         setInputPath(arg);
 
         // Yell at the user until valid input is given
@@ -63,6 +66,11 @@ public class App {
                 setInputPath(promptForInput("Cannot write %s. Please enter a valid path:",
                         new String[] { inputFilePath.toString() },
                         userInputReader));
+            } finally {
+                if (inputFilePath.toString().equals("exit")) {
+                    userInputReader.close();
+                    return;
+                }
             }
         }
         userInputReader.close();
@@ -110,9 +118,7 @@ public class App {
     public static String promptForInput(String message, String[] formatArgs, Scanner activeScanner) {
         String userInput = "";
         System.out.print(String.format(message, (Object[]) formatArgs));
-
         userInput = activeScanner.nextLine();
-
         return userInput;
     }
 
