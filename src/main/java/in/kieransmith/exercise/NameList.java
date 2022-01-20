@@ -19,9 +19,9 @@ public class NameList extends ArrayList<Name> {
      * @param firstLastNamePairs an ArrayList of Strings denoting first and last
      *                           names
      * @return NameList
-     * @throws MalformedInputFileException
+     * @throws MalformedInputException
      */
-    public static NameList from(ArrayList<String> firstLastNamePairs) throws MalformedInputFileException {
+    public static NameList from(ArrayList<String> firstLastNamePairs) throws MalformedInputException {
         NameList names = new NameList();
 
         // this uses a standard for loop instead of a map because `Name.from`

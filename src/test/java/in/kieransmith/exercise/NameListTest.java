@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class NameListTest {
 
     @Test
-    public void NameListFromStringArray_ExpectOrderedNameList() throws MalformedInputFileException {
+    public void NameListFromStringArray_ExpectOrderedNameList() throws MalformedInputException {
         // Arrange
         ArrayList<String> firstLastNamePairs = new ArrayList<String>(
                 Arrays.asList("BOB,SMITH", "DANIEL,JOHNSON", "JERIMY,BERIMY"));
@@ -31,7 +31,7 @@ public class NameListTest {
     }
 
     @Test
-    public void PrivodeUnsortedNameList_ExpectSortedNameList() throws MalformedInputFileException {
+    public void PrivodeUnsortedNameList_ExpectSortedNameList() throws MalformedInputException {
         // Arrange
         NameList listToSort = new NameList();
         listToSort.add(new Name("SMITH", "BOB"));
@@ -52,7 +52,7 @@ public class NameListTest {
     }
 
     @Test
-    public void NameListFromMalformedInput_ExpectMalformedInputFileException() {
+    public void NameListFromMalformedInput_ExpectMalformedInputException() {
         // Arrange
         Class<? extends Exception> caughtException = Exception.class;
 
@@ -60,11 +60,11 @@ public class NameListTest {
         try {
             NameList.from(new ArrayList<String>(
                     Arrays.asList("A,B,C")));
-        } catch (MalformedInputFileException e) {
-            caughtException = MalformedInputFileException.class;
+        } catch (MalformedInputException e) {
+            caughtException = MalformedInputException.class;
         }
 
         // Assert
-        assertEquals(MalformedInputFileException.class, caughtException);
+        assertEquals(MalformedInputException.class, caughtException);
     }
 }

@@ -11,34 +11,44 @@ public class App {
     public static Path inputFilePath;
     public static Path outputFilePath;
 
+    // Scanner is initialized here and passed into `promptForInput` because
+    // NoSuchElementException was thrown after more than one call.
+    // This is due to the scanner being closed elsewhere when reading a file
+    // with FileIO.read()
+    public static Scanner userInputReader = new Scanner(System.in);
+
     /**
      * Prompts for input
      *
      * @param args
      */
     public static void main(String[] args) {
-        // ! EDIT THIS LINE
-        String temporaryArg = "C:\\Users\\jam\\Downloads\\names.txt";
-        setInputPath(temporaryArg);
 
-        // Scanner is initialized here and passed into `promptForInput` because
-        // NoSuchElementException was thrown after more than one call.
-        // This is due to the repeated opening/closing of the scanner and this
-        // fixes that issue
-        Scanner userInputReader = new Scanner(System.in);
+        if (args.length == 0) {
+            run(promptForInput("Please enter a file path to sort:",
+                    new String[] {},
+                    userInputReader));
+        } else if (args.length == 1) {
+            run(args[0]);
+        } else {
+            bulkRun(args);
+        }
+
+    }
+
+    public static void run(String arg) {
+        setInputPath(arg);
 
         // Yell at the user until valid input is given
         while (true) {
             try {
-                NameList names = NameList.from(FileIO.read(inputFilePath)).sort();
-                FileIO.write(outputFilePath, names.toStringArray());
-                System.out.println(String.format("Finished: created %s", outputFilePath.toString()));
+                readSortAndWrite(inputFilePath, outputFilePath);
                 break;
             } catch (FileNotFoundException e) {
                 setInputPath(promptForInput("Could not find '%s'. Please enter a valid path:",
                         new String[] { inputFilePath.toString() },
                         userInputReader));
-            } catch (MalformedInputFileException e) {
+            } catch (MalformedInputException e) {
                 setInputPath(
                         promptForInput("Line '%s' in '%s' is not formatted correctly. Please enter a valid path:",
                                 new String[] { e.badString, inputFilePath.toString() },
@@ -50,6 +60,24 @@ public class App {
             }
         }
         userInputReader.close();
+    }
+
+    public static void readSortAndWrite(Path input, Path output)
+            throws FileNotFoundException, MalformedInputException, IOException {
+        NameList names = NameList.from(FileIO.read(input)).sort();
+        FileIO.write(output, names.toStringArray());
+        System.out.println(String.format("Finished: created %s", output.toString()));
+    }
+
+    public static void bulkRun(String[] paths) {
+        for (String path : paths) {
+            try {
+                setInputPath(path);
+                readSortAndWrite(inputFilePath, outputFilePath);
+            } catch (IOException | MalformedInputException e) {
+                System.out.println(String.format("Error caught while sorting %s. Skipped.", outputFilePath.toString()));
+            }
+        }
     }
 
     /**

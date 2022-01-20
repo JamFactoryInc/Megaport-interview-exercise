@@ -7,8 +7,8 @@ public class Name {
     public static final int NAME_LENGTH = 2;
 
     public Name(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        setFirstName(firstName);
+        setLastName(lastName);
     }
 
     /**
@@ -29,14 +29,14 @@ public class Name {
      * @param firstName what to set the first name to
      */
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstName = firstName.replaceAll("\\s", "");
     }
 
     /**
      * @param lastName what to set the last name to
      */
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.lastName = lastName.replaceAll("\\s", "");
     }
 
     /**
@@ -60,12 +60,12 @@ public class Name {
     /**
      * @param firstLastNamePair
      * @return Name
-     * @throws MalformedInputFileException
+     * @throws MalformedInputException
      */
-    public static Name from(String firstLastNamePair) throws MalformedInputFileException {
-        String[] names = firstLastNamePair.replaceAll("\\s", "").split(",");
+    public static Name from(String firstLastNamePair) throws MalformedInputException {
+        String[] names = firstLastNamePair.split(",");
         if (names.length != NAME_LENGTH) {
-            throw new MalformedInputFileException(
+            throw new MalformedInputException(
                     String.format("%s is not a valid first name/ last name pair", firstLastNamePair),
                     firstLastNamePair);
         }
