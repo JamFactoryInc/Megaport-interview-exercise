@@ -18,7 +18,7 @@ Software Engineer
 > 
 > `exit` can be input at any point to quit the application.
 >
->> ##### Single Argument
+>> #### Single Argument
 >>
 >> `java -jar App.jar C:\Users\jam\Downloads\names.txt`
 >>
@@ -26,7 +26,7 @@ Software Engineer
 >> 
 >> Otherwise, it will display one of three possible and prompt for a different path.
 >>
->> ##### Multiple Arguments
+>> #### Multiple Arguments
 >>
 >> `java -jar App.jar C:\Users\jam\Downloads\names1.txt C:\Users\jam\Downloads\names2.txt`
 >>
