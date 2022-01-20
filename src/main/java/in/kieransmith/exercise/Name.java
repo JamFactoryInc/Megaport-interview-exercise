@@ -26,14 +26,14 @@ public class Name {
     }
 
     /**
-     * @param firstName what to set the first name to
+     * @param firstName what to set the first name to. Trims whitespace
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName.replaceAll("\\s", "");
     }
 
     /**
-     * @param lastName what to set the last name to
+     * @param lastName what to set the last name to. Trims whitespace
      */
     public void setLastName(String lastName) {
         this.lastName = lastName.replaceAll("\\s", "");
@@ -41,7 +41,7 @@ public class Name {
 
     /**
      * Sets both the first and last name
-     * 
+     *
      * @param firstName the first name to set
      * @param lastName  the last name to set
      */
@@ -58,9 +58,11 @@ public class Name {
     }
 
     /**
-     * @param firstLastNamePair
-     * @return Name
-     * @throws MalformedInputException
+     * Creates a new instance of Name from a first name/ last name pair string
+     *
+     * @param firstLastNamePair the comma-seperated first and last name
+     * @return Name the new instance representing the name
+     * @throws MalformedInputException More or less than 3 elements are given
      */
     public static Name from(String firstLastNamePair) throws MalformedInputException {
         String[] names = firstLastNamePair.split(",");
@@ -73,8 +75,11 @@ public class Name {
     }
 
     /**
-     * @param other
-     * @return int
+     * Compares two Names. -1 = before other in the alphabet, 0 = equal to other, 1
+     * = after other in the alphabet
+     *
+     * @param other the name object to compare this to
+     * @return int the result of the comparison
      */
     public int compareTo(Name other) {
         int firstNameComparison = this.firstName.compareTo(other.getFirstName());
@@ -85,6 +90,10 @@ public class Name {
         }
     }
 
+    /**
+     * @param other the other instance to compare equality
+     * @return boolean if the two instances have the same value
+     */
     public boolean equals(Name other) {
         return this.firstName.equals(other.getFirstName()) && this.lastName.equals(other.getLastName());
     }

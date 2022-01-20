@@ -18,9 +18,9 @@ public class App {
     public static Scanner userInputReader = new Scanner(System.in);
 
     /**
-     * Prompts for input
+     * Runs the app based on given args
      *
-     * @param args
+     * @param args optional file paths to sort
      */
     public static void main(String[] args) {
 
@@ -36,6 +36,12 @@ public class App {
 
     }
 
+    /**
+     * Is given a file path to try and sort, and keeps prompting for a file path
+     * until a valid path is given
+     *
+     * @param arg the path to sort
+     */
     public static void run(String arg) {
         setInputPath(arg);
 
@@ -62,6 +68,16 @@ public class App {
         userInputReader.close();
     }
 
+    /**
+     * The basic logic of the app. Reads the given input path into a NameList, sorts
+     * it, and writes it to the given output path
+     *
+     * @param input  the path to read from
+     * @param output the path to write to
+     * @throws FileNotFoundException   the input file is unopenable or missing
+     * @throws MalformedInputException the input file is not in the correct format
+     * @throws IOException             the file cannot be written
+     */
     public static void readSortAndWrite(Path input, Path output)
             throws FileNotFoundException, MalformedInputException, IOException {
         NameList names = NameList.from(FileIO.read(input)).sort();
@@ -69,6 +85,12 @@ public class App {
         System.out.println(String.format("Finished: created %s", output.toString()));
     }
 
+    /**
+     * Made to process more than one file at a time. Skips invalid files rather that
+     * prompting for a valid path
+     *
+     * @param paths the paths to process
+     */
     public static void bulkRun(String[] paths) {
         for (String path : paths) {
             try {
@@ -96,6 +118,7 @@ public class App {
 
     /**
      * Simultaneously sets inputFilePath and derives outputFilePath
+     * outputFilePath is in the format <inputFilePath>-sorted.txt
      *
      * @param path the path string to use
      */

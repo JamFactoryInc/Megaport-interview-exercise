@@ -18,8 +18,8 @@ public class NameList extends ArrayList<Name> {
     /**
      * @param firstLastNamePairs an ArrayList of Strings denoting first and last
      *                           names
-     * @return NameList
-     * @throws MalformedInputException
+     * @return NameList the new NameList instance
+     * @throws MalformedInputException if any of the pairs are malformed
      */
     public static NameList from(ArrayList<String> firstLastNamePairs) throws MalformedInputException {
         NameList names = new NameList();
@@ -43,6 +43,10 @@ public class NameList extends ArrayList<Name> {
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
+    /**
+     * @param other the other instance to compare equality to
+     * @return boolean if the two instances have the same values in order
+     */
     public boolean equals(NameList other) {
         if (this.size() != other.size())
             return false;

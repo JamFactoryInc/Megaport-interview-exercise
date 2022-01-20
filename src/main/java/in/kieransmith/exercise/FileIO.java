@@ -13,9 +13,12 @@ import java.io.PrintStream;
 public class FileIO {
 
     /**
-     * @param path
-     * @return ArrayList<String>
-     * @throws FileNotFoundException
+     * Reads the given path and returns the lines in an ArrayList
+     *
+     * @param path the path to read
+     * @return ArrayList<String> the lines in order
+     * @throws FileNotFoundException the path given does not exist or is not
+     *                               accessible
      */
     public static ArrayList<String> read(Path path) throws FileNotFoundException {
         ArrayList<String> lines = new ArrayList<String>();
@@ -48,13 +51,21 @@ public class FileIO {
     }
 
     /**
-     * @param path
-     * @return String
+     * Removes the file extension from a path string
+     * Example: "file.txt" -> "file"
+     *
+     * @param path the path string to remove the extension of
+     * @return String the path string with the extension removed
      */
     public static String stripExtension(String path) {
         return path.replaceAll("\\.[^\\.]*$", "");
     }
 
+    /**
+     * Generates a unique file path to use for temporary file testing
+     *
+     * @return Path the unique file path
+     */
     public static Path getUniquePath() {
         return Paths.get(System.getProperty("user.dir")
                 + System.getProperty("file.separator")
