@@ -83,8 +83,7 @@ public class AppTest {
 
         // Clean
         filePath.toFile().delete();
-        assertTrue(String.format("A file named %s should be created", App.outputFilePath.toString()),
-                App.outputFilePath.toFile().delete());
+        App.outputFilePath.toFile().delete();
     }
 
     @Test
@@ -97,13 +96,11 @@ public class AppTest {
 
         // Assert
 
-        assertEquals(String.format("Error caught while sorting %s. Skipped.", String.format("%s-sorted.txt",
-                FileIO.stripExtension(filePath1
-                        .toString())))
+        assertEquals(String.format("Error caught while sorting %s. Skipped.",
+                FileIO.modifyPathName(filePath1, "%s-sorted.txt"))
                 + System.lineSeparator() +
-                String.format("Error caught while sorting %s. Skipped.", String.format("%s-sorted.txt",
-                        FileIO.stripExtension(filePath2
-                                .toString()))),
+                String.format("Error caught while sorting %s. Skipped.",
+                        FileIO.modifyPathName(filePath2, "%s-sorted.txt")),
                 outStream.toString().trim());
     }
 

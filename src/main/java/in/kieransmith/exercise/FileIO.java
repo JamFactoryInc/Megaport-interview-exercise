@@ -72,4 +72,19 @@ public class FileIO {
                 + UUID.randomUUID().toString()
                 + ".txt");
     }
+
+    /**
+     * Alters the name and extension of a path
+     * FileIO.modifyPathName(Paths.get("text.txt"), "%s-modified.txt") ->
+     * Paths.get("text-modified.txt")
+     *
+     * @param path         the path to modify
+     * @param formatString how the name should be formatted
+     * @return Path the new path
+     */
+    public static Path modifyPathName(Path path, String formatString) {
+        return Paths.get(String.format(
+                formatString,
+                FileIO.stripExtension(path.toString())));
+    }
 }
