@@ -68,9 +68,9 @@
   <testcase classname="in.kieransmith.exercise.unit.NameListTest" name="CompareShuffledNameLists_ExpectFalse" time="0"/>
   <testcase classname="in.kieransmith.exercise.unit.NameListTest" name="CompareSameInstance_ExpectTrue" time="0"/>
   <testcase classname="in.kieransmith.exercise.unit.NameListTest" name="NameListFromMalformedInput_ExpectMalformedInputException" time="0"/>
-  <testcase classname="in.kieransmith.exercise.unit.NameListTest" name="CompareDifferentLengthNameLists_ExpectFalse" time="0"/>
+  <testcase classname="in.kieransmith.exercise.unit.NameListTest" name="CompareDifferentLengthNameLists_ExpectFalse" time="0.001"/>
   <testcase classname="in.kieransmith.exercise.unit.NameListTest" name="NameListFromStringArray_ExpectOrderedNameList" time="0"/>
   <testcase classname="in.kieransmith.exercise.unit.NameListTest" name="CompareIdenticalNameLists_ExpectTrue" time="0"/>
-  <testcase classname="in.kieransmith.exercise.unit.NameListTest" name="TestToStringArray_ExpectOrderedStringArray" time="0.001"/>
+  <testcase classname="in.kieransmith.exercise.unit.NameListTest" name="TestToStringArray_ExpectOrderedStringArray" time="0"/>
   <testcase classname="in.kieransmith.exercise.unit.NameListTest" name="PrivodeUnsortedNameList_ExpectSortedNameList" time="0"/>
 </testsuite>

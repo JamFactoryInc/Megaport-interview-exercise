@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import in.kieransmith.exercise.FileIO;
 
@@ -53,6 +54,18 @@ public class FileIOTest {
 
         // Assert
         assertEquals(FileNotFoundException.class, caughtException);
+    }
+
+    @Test
+    public void ModifyPath_ExpectModifiedPath() {
+        // Arrange
+        Path basePath = Paths.get("test.txt");
+
+        // Act
+        Path resultPath = FileIO.modifyPathName(basePath, "%s-test.test");
+
+        // Assert
+        assertEquals("test-test.test", resultPath.toString());
     }
 
 }

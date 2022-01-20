@@ -71,11 +71,11 @@
   <testcase classname="in.kieransmith.exercise.unit.NameTest" name="CompareEquality_ExpectTrue" time="0"/>
   <testcase classname="in.kieransmith.exercise.unit.NameTest" name="CompareFirstName_ExpectNegOne" time="0"/>
   <testcase classname="in.kieransmith.exercise.unit.NameTest" name="CompareFirstName_ExpectOne" time="0"/>
-  <testcase classname="in.kieransmith.exercise.unit.NameTest" name="CompareLastName_ExpectNegOne" time="0"/>
+  <testcase classname="in.kieransmith.exercise.unit.NameTest" name="CompareLastName_ExpectNegOne" time="0.001"/>
   <testcase classname="in.kieransmith.exercise.unit.NameTest" name="CompareLastName_ExpectOne" time="0"/>
   <testcase classname="in.kieransmith.exercise.unit.NameTest" name="CompareName_ExpectZero" time="0"/>
   <testcase classname="in.kieransmith.exercise.unit.NameTest" name="NameFromNotEnoughElements_ExpectMalformedInputException" time="0"/>
-  <testcase classname="in.kieransmith.exercise.unit.NameTest" name="NameFromString_ExpectName" time="0.001"/>
+  <testcase classname="in.kieransmith.exercise.unit.NameTest" name="NameFromString_ExpectName" time="0"/>
   <testcase classname="in.kieransmith.exercise.unit.NameTest" name="NameFromTooManyElements_ExpectMalformedInputException" time="0"/>
   <testcase classname="in.kieransmith.exercise.unit.NameTest" name="NameToString_ExpectCorrectString" time="0"/>
 </testsuite>

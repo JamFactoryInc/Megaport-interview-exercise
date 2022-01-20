@@ -66,6 +66,6 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
   <testcase classname="in.kieransmith.exercise.integration.AppIntegrationTest" name="NameListFromFile_ExpectOrderedNameList" time="0.187"/>
-  <testcase classname="in.kieransmith.exercise.integration.AppIntegrationTest" name="ReadFileWriteSortedFile_ExpectSortedFile" time="0.008"/>
-  <testcase classname="in.kieransmith.exercise.integration.AppIntegrationTest" name="RunBulkFileSort_ExpectSortedFiles" time="0.007"/>
+  <testcase classname="in.kieransmith.exercise.integration.AppIntegrationTest" name="ReadFileWriteSortedFile_ExpectSortedFile" time="0.007"/>
+  <testcase classname="in.kieransmith.exercise.integration.AppIntegrationTest" name="RunBulkFileSort_ExpectSortedFiles" time="0.008"/>
 </testsuite>

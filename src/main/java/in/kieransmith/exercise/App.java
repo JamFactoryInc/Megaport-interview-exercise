@@ -130,7 +130,6 @@ public class App {
      */
     public static void setInputPath(String path) {
         inputFilePath = Paths.get(path);
-        outputFilePath = Paths.get(String.format("%s-sorted.txt",
-                FileIO.stripExtension(inputFilePath.toString())));
+        outputFilePath = FileIO.modifyPathName(inputFilePath, "%s-sorted.txt");
     }
 }
