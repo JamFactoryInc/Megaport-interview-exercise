@@ -20,7 +20,7 @@ import in.kieransmith.exercise.App;
 import in.kieransmith.exercise.FileIO;
 import in.kieransmith.exercise.MalformedInputException;
 
-public class AppTests {
+public class AppTest {
 
     public static final InputStream stdIn = System.in;
     public static final PrintStream stdOut = System.out;
