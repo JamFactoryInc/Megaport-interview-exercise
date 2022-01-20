@@ -12,6 +12,7 @@ Software Engineer
 >
 > #### Usage
 > if the program is run with no args it will prompt the user for an input file path, but args can be included for single- or multiple-file processing.
+> `exit` can be input at any point to quit the application
 >
 >> ##### Single argument
 >>
