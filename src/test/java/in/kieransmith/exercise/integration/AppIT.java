@@ -1,7 +1,6 @@
 package in.kieransmith.exercise.integration;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertEquals;
 import org.junit.runners.MethodSorters;
 import org.junit.Test;
 import org.junit.FixMethodOrder;

@@ -13,9 +13,6 @@ import in.kieransmith.exercise.NameList;
 import in.kieransmith.exercise.Name;
 import in.kieransmith.exercise.MalformedInputException;
 
-/**
- * Unit test for simple App.
- */
 public class NameListTest {
 
     @Test
