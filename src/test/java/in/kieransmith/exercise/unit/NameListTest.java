@@ -1,4 +1,4 @@
-package in.kieransmith.exercise;
+package in.kieransmith.exercise.unit;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -7,6 +7,10 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import in.kieransmith.exercise.NameList;
+import in.kieransmith.exercise.Name;
+import in.kieransmith.exercise.MalformedInputException;
 
 /**
  * Unit test for simple App.

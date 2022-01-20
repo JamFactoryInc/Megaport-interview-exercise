@@ -1,4 +1,4 @@
-package in.kieransmith.exercise;
+package in.kieransmith.exercise.unit;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
@@ -6,6 +6,9 @@ import static org.junit.Assert.assertEquals;
 import org.junit.runners.MethodSorters;
 import org.junit.Test;
 import org.junit.FixMethodOrder;
+
+import in.kieransmith.exercise.Name;
+import in.kieransmith.exercise.MalformedInputException;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class NameTest {

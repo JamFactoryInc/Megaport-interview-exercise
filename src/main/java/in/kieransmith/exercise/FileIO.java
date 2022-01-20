@@ -2,7 +2,9 @@ package in.kieransmith.exercise;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.UUID;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -51,5 +53,12 @@ public class FileIO {
      */
     public static String stripExtension(String path) {
         return path.replaceAll("\\.[^\\.]*$", "");
+    }
+
+    public static Path getUniquePath() {
+        return Paths.get(System.getProperty("user.dir")
+                + System.getProperty("file.separator")
+                + UUID.randomUUID().toString()
+                + ".txt");
     }
 }
