@@ -6,6 +6,7 @@ Software Engineer
 
 ### Application
 
+> #### Running the App
 > Open the terminal and navigate to the `Megaport-interview-exercise` root directory.
 >
 > Run the command `java -jar App.jar`.
@@ -24,7 +25,7 @@ Software Engineer
 >>
 >> This command will try to sort the names in `names.txt` and will output to `C:\Users\jam\Downloads\names-sorted.txt` if it succeeds.
 >> 
->> Otherwise, it will display one of three possible and prompt for a different path.
+>> Otherwise, it will display one of three possible problems and prompt for a different path.
 >>
 >> #### Multiple Arguments
 >>
