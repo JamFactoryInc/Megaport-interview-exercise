@@ -74,6 +74,8 @@ public class AppIntegrationTest {
                                 actual2.equals(desiredNames));
 
                 // Clean
+                filePath1.toFile().delete();
+                filePath2.toFile().delete();
                 sortedFile1.toFile().delete();
                 sortedFile2.toFile().delete();
         }

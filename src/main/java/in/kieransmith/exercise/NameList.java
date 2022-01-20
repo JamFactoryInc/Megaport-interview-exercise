@@ -5,7 +5,10 @@ import java.util.ArrayList;
 
 public class NameList extends ArrayList<Name> {
 
-    /**
+	// Default SerialVersionUID
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Sorts the Namelist instance inplace
      *
      * @return this instance of NameList
