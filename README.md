@@ -24,14 +24,17 @@ Software Engineer
 >> `java -jar App.jar C:\Users\jam\Downloads\names.txt`
 >>
 >> This command will try to sort the names in `names.txt` and will output to `C:\Users\jam\Downloads\names-sorted.txt` if it succeeds.
->> 
+>>
+>> If the desired path contains whitespace, please wrap it in double quotes: <br>
+>> `java -jar App.jar "C:\Users\jam\Downloads\Directory With Spaces\names.txt"`
+>>
 >> Otherwise, it will display one of three possible problems and prompt for a different path.
 >>
 >> #### Multiple Arguments
 >>
 >> `java -jar App.jar C:\Users\jam\Downloads\names1.txt C:\Users\jam\Downloads\names2.txt`
 >>
->> This command will skip failed attempts, and write to `C:\Users\jam\Downloads\names1-sorted.txt` and `C:\Users\jam\Downloads\names2-sorted.txt` assuming they succeed.
+>> This command will skip failed attempts, and write to `C:\Users\jam\Downloads\names1-sorted.txt` and `C:\Users\jam\Downloads\names2-sorted.txt`, assuming they succeed.
 
 
 ### Tests
