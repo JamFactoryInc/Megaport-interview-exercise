@@ -22,14 +22,14 @@ public class FileIO {
      */
     public static ArrayList<String> read(Path path) throws FileNotFoundException {
         ArrayList<String> lines = new ArrayList<String>();
-
         File fileToRead = path.toFile();
-        Scanner fileReader = new Scanner(fileToRead);
-        while (fileReader.hasNext()) {
-            lines.add(fileReader.nextLine());
-        }
-        fileReader.close();
 
+        try (
+                Scanner fileReader = new Scanner(fileToRead);) {
+            while (fileReader.hasNext()) {
+                lines.add(fileReader.nextLine());
+            }
+        }
         return lines;
     }
 
@@ -43,11 +43,12 @@ public class FileIO {
      */
     public static void write(Path path, ArrayList<String> lines) throws IOException, FileNotFoundException {
         // Using PrintStream to easily have os-specific newlines after each name
-        PrintStream fileWriter = new PrintStream(path.toFile());
-        for (String line : lines) {
-            fileWriter.println(line);
+        try (
+                PrintStream fileWriter = new PrintStream(path.toFile());) {
+            for (String line : lines) {
+                fileWriter.println(line);
+            }
         }
-        fileWriter.close();
     }
 
     /**

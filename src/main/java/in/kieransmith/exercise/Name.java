@@ -1,8 +1,8 @@
 package in.kieransmith.exercise;
 
 public class Name {
-    String firstName;
-    String lastName;
+    private String firstName;
+    private String lastName;
 
     public static final int NAME_LENGTH = 2;
 

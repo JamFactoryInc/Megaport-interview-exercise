@@ -37,7 +37,7 @@ public class NameList extends ArrayList<Name> {
     }
 
     /**
-     * @return an array of strings all representitive of their respective Name
+     * @return an array of strings all representative of their respective Name
      *         objects
      */
     public ArrayList<String> toStringArray() {
