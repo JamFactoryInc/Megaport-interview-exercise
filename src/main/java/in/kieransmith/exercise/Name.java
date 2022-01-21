@@ -29,14 +29,14 @@ public class Name {
      * @param firstName what to set the first name to. Trims whitespace
      */
     public void setFirstName(String firstName) {
-        this.firstName = firstName.replaceAll("\\s", "");
+        this.firstName = firstName.trim().toUpperCase();
     }
 
     /**
      * @param lastName what to set the last name to. Trims whitespace
      */
     public void setLastName(String lastName) {
-        this.lastName = lastName.replaceAll("\\s", "");
+        this.lastName = lastName.trim().toUpperCase();
     }
 
     /**

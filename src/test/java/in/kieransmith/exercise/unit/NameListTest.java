@@ -36,13 +36,13 @@ public class NameListTest {
     public void PrivodeUnsortedNameList_ExpectSortedNameList() throws MalformedInputException {
         // Arrange
         NameList listToSort = new NameList();
-        listToSort.add(new Name("SMITH", "BOB"));
+        listToSort.add(new Name("smith", "bob"));
         listToSort.add(new Name("SMITH", "ABBY"));
         listToSort.add(new Name("BERIMY", "JERIMY"));
-        listToSort.add(new Name("BLACK", "JOHN"));
+        listToSort.add(new Name("BLACK", "JOHN JOHNSON"));
         NameList desiredResult = new NameList();
         desiredResult.add(new Name("BERIMY", "JERIMY"));
-        desiredResult.add(new Name("BLACK", "JOHN"));
+        desiredResult.add(new Name("BLACK", "JOHN JOHNSON"));
         desiredResult.add(new Name("SMITH", "ABBY"));
         desiredResult.add(new Name("SMITH", "BOB"));
 
