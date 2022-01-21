@@ -26,7 +26,7 @@ public class FileIO {
 
         try (
                 Scanner fileReader = new Scanner(fileToRead);) {
-            while (fileReader.hasNext()) {
+            while (fileReader.hasNextLine()) {
                 lines.add(fileReader.nextLine());
             }
         }
