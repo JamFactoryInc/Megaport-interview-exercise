@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 
-public class FileIO {
+public abstract class FileIO {
 
     /**
      * Reads the given path and returns the lines in an ArrayList

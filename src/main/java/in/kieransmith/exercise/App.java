@@ -63,7 +63,7 @@ public class App {
                                 new String[] { e.badString, inputFilePath.toString() },
                                 userInputReader));
             } catch (IOException e) {
-                setInputPath(promptForInput("Cannot write %s. Please enter a valid path:",
+                setInputPath(promptForInput("Cannot write '%s'. Please enter a valid path:",
                         new String[] { inputFilePath.toString() },
                         userInputReader));
             } finally {
