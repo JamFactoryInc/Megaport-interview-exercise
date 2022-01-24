@@ -90,7 +90,7 @@ public class App {
             throws FileNotFoundException, MalformedInputException, IOException {
         NameList names = NameList.from(FileIO.read(input)).sort();
         FileIO.write(output, names.toStringArray());
-        System.out.println(String.format("Finished: created %s", output.toString()));
+        System.out.println(String.format("Finished: created '%s'", output.toString()));
     }
 
     /**
@@ -105,7 +105,8 @@ public class App {
                 setInputPath(path);
                 readSortAndWrite(inputFilePath, outputFilePath);
             } catch (IOException | MalformedInputException e) {
-                System.out.println(String.format("Error caught while sorting %s. Skipped.", outputFilePath.toString()));
+                System.out.println(String.format("Error caught while sorting '%s'. Skipped.",
+                        outputFilePath.toString()));
             }
         }
     }
