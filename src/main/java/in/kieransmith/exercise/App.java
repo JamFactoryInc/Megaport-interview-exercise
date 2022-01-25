@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
-public class App {
+public abstract class App {
 
     public static Path inputFilePath;
     public static Path outputFilePath;

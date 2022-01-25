@@ -4,6 +4,8 @@ public class Name {
     private String firstName;
     private String lastName;
 
+    // the number of elements in a given name.
+    // "FIZZ, BUZZ" has two elements while "FOO, BAR, BAZ" has three
     public static final int NAME_LENGTH = 2;
 
     public Name(String firstName, String lastName) {
@@ -12,14 +14,14 @@ public class Name {
     }
 
     /**
-     * @return String the first name
+     * @return the first name
      */
     public String getFirstName() {
         return this.firstName;
     }
 
     /**
-     * @return String the last name
+     * @return the last name
      */
     public String getLastName() {
         return this.lastName;

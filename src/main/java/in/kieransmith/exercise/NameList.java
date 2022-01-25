@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 public class NameList extends ArrayList<Name> {
 
-	// Default SerialVersionUID
-	private static final long serialVersionUID = 1L;
+    // Default SerialVersionUID
+    private static final long serialVersionUID = 1L;
 
-	/**
+    /**
      * Sorts the Namelist instance inplace
      *
      * @return this instance of NameList
@@ -29,7 +29,7 @@ public class NameList extends ArrayList<Name> {
 
         // this uses a standard for loop instead of a map because `Name.from`
         // throws a MalformedInputFileException, making the lambda passed into
-        // the map function have an unchecked MalformedInputFileException
+        // the map function have an uncaught MalformedInputFileException
         for (String firstLastNamePair : firstLastNamePairs) {
             names.add(Name.from(firstLastNamePair));
         }
@@ -51,8 +51,10 @@ public class NameList extends ArrayList<Name> {
      * @return boolean if the two instances have the same values in order
      */
     public boolean equals(NameList other) {
+        // fail if the lengths are not equal
         if (this.size() != other.size())
             return false;
+        // fail if any of the elements are not equal
         for (int i = 0; i < this.size(); i++) {
             if (!this.get(i).equals(other.get(i)))
                 return false;
