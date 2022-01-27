@@ -61,6 +61,6 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
   <testcase classname="in.kieransmith.exercise.unit.FileHandlerTest" name="ModifyPath_ExpectModifiedPath" time="0"/>
-  <testcase classname="in.kieransmith.exercise.unit.FileHandlerTest" name="ReadFile_ExpectKnownContent" time="0.002"/>
-  <testcase classname="in.kieransmith.exercise.unit.FileHandlerTest" name="ReadNonExistentFile_ExpectFileNotFound" time="0"/>
+  <testcase classname="in.kieransmith.exercise.unit.FileHandlerTest" name="ReadFile_ExpectKnownContent" time="0.001"/>
+  <testcase classname="in.kieransmith.exercise.unit.FileHandlerTest" name="ReadNonExistentFile_ExpectFileNotFound" time="0.001"/>
 </testsuite>

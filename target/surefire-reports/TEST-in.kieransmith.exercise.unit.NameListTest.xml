@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="in.kieransmith.exercise.unit.NameListTest" time="0.001" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="in.kieransmith.exercise.unit.NameListTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="14.0.2+12-46"/>
@@ -61,7 +61,7 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
   <testcase classname="in.kieransmith.exercise.unit.NameListTest" name="CompareShuffledNameLists_ExpectFalse" time="0"/>
-  <testcase classname="in.kieransmith.exercise.unit.NameListTest" name="CompareSameInstance_ExpectTrue" time="0.001"/>
+  <testcase classname="in.kieransmith.exercise.unit.NameListTest" name="CompareSameInstance_ExpectTrue" time="0"/>
   <testcase classname="in.kieransmith.exercise.unit.NameListTest" name="NameListFromMalformedInput_ExpectMalformedInputException" time="0"/>
   <testcase classname="in.kieransmith.exercise.unit.NameListTest" name="CompareDifferentLengthNameLists_ExpectFalse" time="0"/>
   <testcase classname="in.kieransmith.exercise.unit.NameListTest" name="NameListFromStringArray_ExpectOrderedNameList" time="0"/>

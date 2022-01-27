@@ -1,16 +1,11 @@
 package in.kieransmith.exercise.unit;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 import org.junit.After;
@@ -18,7 +13,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import in.kieransmith.exercise.App;
-import in.kieransmith.exercise.FileHandler;
 
 public class AppTest {
 
