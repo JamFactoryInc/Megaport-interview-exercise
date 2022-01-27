@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="7" failures="0" name="in.kieransmith.exercise.integration.AppIntegrationTest" time="0.075" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="in.kieransmith.exercise.unit.FileHandlerTest" time="0.002" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="14.0.2+12-46"/>
@@ -60,11 +60,7 @@
     <property name="sun.stdout.encoding" value="cp437"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="in.kieransmith.exercise.integration.AppIntegrationTest" name="HandleBulkFiles_ExpectCorrectOutput" time="0.048"/>
-  <testcase classname="in.kieransmith.exercise.integration.AppIntegrationTest" name="HandleMalformedFile_ExpectCorrectPrompt" time="0.007"/>
-  <testcase classname="in.kieransmith.exercise.integration.AppIntegrationTest" name="HandleNonExistentFile_ExpectCorrectPrompt" time="0"/>
-  <testcase classname="in.kieransmith.exercise.integration.AppIntegrationTest" name="HandleValidFile_ExpectCorrectPrompt" time="0.005"/>
-  <testcase classname="in.kieransmith.exercise.integration.AppIntegrationTest" name="NameListFromFile_ExpectOrderedNameList" time="0.002"/>
-  <testcase classname="in.kieransmith.exercise.integration.AppIntegrationTest" name="ReadFileWriteSortedFile_ExpectSortedFile" time="0.005"/>
-  <testcase classname="in.kieransmith.exercise.integration.AppIntegrationTest" name="RunBulkFileSort_ExpectSortedFiles" time="0.008"/>
+  <testcase classname="in.kieransmith.exercise.unit.FileHandlerTest" name="ModifyPath_ExpectModifiedPath" time="0"/>
+  <testcase classname="in.kieransmith.exercise.unit.FileHandlerTest" name="ReadFile_ExpectKnownContent" time="0.002"/>
+  <testcase classname="in.kieransmith.exercise.unit.FileHandlerTest" name="ReadNonExistentFile_ExpectFileNotFound" time="0"/>
 </testsuite>

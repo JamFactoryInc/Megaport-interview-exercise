@@ -22,26 +22,26 @@ import in.kieransmith.exercise.FileHandler;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 // This is more extensively tested in AppTests.java due to the nature of FileIO
 // needing its own methods for validation
-public class FileIOTest {
-    FileHandler mockFileHandler;
+public class FileHandlerTest {
+    static FileHandler mockFileHandler;
 
     @BeforeClass
-    public void before() {
-        this.mockFileHandler = mock(FileHandler.class);
+    public static void before() {
+        mockFileHandler = new FileHandler();
     }
 
     @Test
     public void ReadFile_ExpectKnownContent() throws IOException {
         // Arrange
         ArrayList<String> desiredContent = new ArrayList<String>(Arrays.asList("Line1", "Line2", "Line3"));
-        Path writtenFilePath = this.mockFileHandler.getUniquePath();
-        verify(this.mockFileHandler).getUniquePath();
+        Path writtenFilePath = mockFileHandler.getUniquePath();
+        // verify(mockFileHandler).getUniquePath();
 
         // Create unique file
-        this.mockFileHandler.write(writtenFilePath, desiredContent);
+        mockFileHandler.write(writtenFilePath, desiredContent);
 
         // Act
-        ArrayList<String> resultantContent = this.mockFileHandler.read(writtenFilePath);
+        ArrayList<String> resultantContent = mockFileHandler.read(writtenFilePath);
 
         // Assert
         assertEquals(desiredContent, resultantContent);
@@ -54,11 +54,11 @@ public class FileIOTest {
     public void ReadNonExistentFile_ExpectFileNotFound() {
         // Arrange
         Class<? extends Exception> caughtException = Exception.class;
-        Path writtenFilePath = this.mockFileHandler.getUniquePath();
+        Path writtenFilePath = mockFileHandler.getUniquePath();
 
         // Act
         try {
-            this.mockFileHandler.read(writtenFilePath);
+            mockFileHandler.read(writtenFilePath);
         } catch (FileNotFoundException e) {
             caughtException = FileNotFoundException.class;
         }
@@ -73,7 +73,7 @@ public class FileIOTest {
         Path basePath = Paths.get("test.txt");
 
         // Act
-        Path resultPath = this.mockFileHandler.modifyPathName(basePath, "%s-test.test");
+        Path resultPath = mockFileHandler.modifyPathName(basePath, "%s-test.test");
 
         // Assert
         assertEquals("test-test.test", resultPath.toString());
