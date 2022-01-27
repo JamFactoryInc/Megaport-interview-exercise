@@ -17,6 +17,8 @@ public abstract class App {
     // with FileIO.read()
     public static Scanner userInputReader;
 
+    public static FileHandler fileHandler = new FileHandler();
+
     /**
      * Runs the app based on given args
      *
@@ -24,15 +26,16 @@ public abstract class App {
      */
     public static void main(String[] args) {
         userInputReader = new Scanner(System.in);
+        App app = new App();
 
         if (args.length == 0) {
-            run(promptForInput("Please enter a file path to sort:",
+            app.run(app.promptForInput("Please enter a file path to sort:",
                     new String[] {},
                     userInputReader));
         } else if (args.length == 1) {
-            run(args[0]);
+            app.run(args[0]);
         } else {
-            bulkRun(args);
+            app.bulkRun(args);
         }
 
     }
@@ -43,7 +46,7 @@ public abstract class App {
      *
      * @param arg the path to sort
      */
-    public static void run(String arg) {
+    public void run(String arg) {
         if (arg.equals("exit"))
             return;
         setInputPath(arg);
@@ -86,11 +89,17 @@ public abstract class App {
      * @throws MalformedInputException the input file is not in the correct format
      * @throws IOException             the file cannot be written
      */
-    public static void readSortAndWrite(Path input, Path output)
+    public void readSortAndWrite(Path input, Path output)
             throws FileNotFoundException, MalformedInputException, IOException {
+<<<<<<< Updated upstream
         NameList names = NameList.from(FileIO.read(input)).sort();
         FileIO.write(output, names.toStringArray());
         System.out.println(String.format("Finished: created '%s'", output.toString()));
+=======
+        NameList names = NameList.from(fileHandler.read(input)).sort();
+        fileHandler.write(output, names.toStringArray());
+        System.out.println(String.format("Finished: created %s", output.toString()));
+>>>>>>> Stashed changes
     }
 
     /**
@@ -99,7 +108,7 @@ public abstract class App {
      *
      * @param paths the paths to process
      */
-    public static void bulkRun(String[] paths) {
+    public void bulkRun(String[] paths) {
         for (String path : paths) {
             try {
                 setInputPath(path);
@@ -116,7 +125,7 @@ public abstract class App {
      * @param formatArgs A String[] of args to use when formatting the `message`
      * @return String The filepath
      */
-    public static String promptForInput(String message, String[] formatArgs, Scanner activeScanner) {
+    public String promptForInput(String message, String[] formatArgs, Scanner activeScanner) {
         String userInput = "";
         System.out.print(String.format(message, (Object[]) formatArgs));
         userInput = activeScanner.nextLine();
@@ -129,8 +138,8 @@ public abstract class App {
      *
      * @param path the path string to use
      */
-    public static void setInputPath(String path) {
+    public void setInputPath(String path) {
         inputFilePath = Paths.get(path);
-        outputFilePath = FileIO.modifyPathName(inputFilePath, "%s-sorted.txt");
+        outputFilePath = fileHandler.modifyPathName(inputFilePath, "%s-sorted.txt");
     }
 }

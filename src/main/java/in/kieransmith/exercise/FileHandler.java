@@ -10,7 +10,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 
+<<<<<<< Updated upstream:src/main/java/in/kieransmith/exercise/FileIO.java
 public abstract class FileIO {
+=======
+public class FileHandler {
+>>>>>>> Stashed changes:src/main/java/in/kieransmith/exercise/FileHandler.java
 
     /**
      * Reads the given path and returns the lines in an ArrayList
@@ -20,7 +24,7 @@ public abstract class FileIO {
      * @throws FileNotFoundException the path given does not exist or is not
      *                               accessible
      */
-    public static ArrayList<String> read(Path path) throws FileNotFoundException {
+    public ArrayList<String> read(Path path) throws FileNotFoundException {
         ArrayList<String> lines = new ArrayList<String>();
         File fileToRead = path.toFile();
 
@@ -41,7 +45,7 @@ public abstract class FileIO {
      * @param strings the lines to write
      * @throws IOException the file cannot be written
      */
-    public static void write(Path path, ArrayList<String> lines) throws IOException, FileNotFoundException {
+    public void write(Path path, ArrayList<String> lines) throws IOException, FileNotFoundException {
         // Using PrintStream to easily have os-specific newlines after each name
         try (
                 PrintStream fileWriter = new PrintStream(path.toFile());) {
@@ -58,7 +62,7 @@ public abstract class FileIO {
      * @param path the path string to remove the extension of
      * @return String the path string with the extension removed
      */
-    public static String stripExtension(String path) {
+    public String stripExtension(String path) {
         return path.replaceAll("\\.[^\\.]*$", "");
     }
 
@@ -67,7 +71,7 @@ public abstract class FileIO {
      *
      * @return Path the unique file path
      */
-    public static Path getUniquePath() {
+    public Path getUniquePath() {
         return Paths.get(System.getProperty("user.dir")
                 + System.getProperty("file.separator")
                 + UUID.randomUUID().toString()
@@ -83,9 +87,9 @@ public abstract class FileIO {
      * @param formatString how the name should be formatted
      * @return Path the new path
      */
-    public static Path modifyPathName(Path path, String formatString) {
+    public Path modifyPathName(Path path, String formatString) {
         return Paths.get(String.format(
                 formatString,
-                FileIO.stripExtension(path.toString())));
+                this.stripExtension(path.toString())));
     }
 }

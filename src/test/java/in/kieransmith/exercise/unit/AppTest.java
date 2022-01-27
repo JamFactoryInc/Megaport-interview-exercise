@@ -1,6 +1,7 @@
 package in.kieransmith.exercise.unit;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -13,10 +14,11 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import org.junit.After;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import in.kieransmith.exercise.App;
-import in.kieransmith.exercise.FileIO;
+import in.kieransmith.exercise.FileHandler;
 import in.kieransmith.exercise.MalformedInputException;
 
 public class AppTest {
@@ -25,6 +27,15 @@ public class AppTest {
     public static final PrintStream stdOut = System.out;
     public static ByteArrayOutputStream outStream;
     public static ByteArrayInputStream inStream;
+
+    FileHandler mockFileHandler;
+    App mockApp;
+
+    @BeforeClass
+    public void before() {
+        this.mockFileHandler = mock(FileHandler.class);
+        this.mockApp = mock(App.class);
+    }
 
     /**
      * Helps with the testing of System.in/out
@@ -40,7 +51,7 @@ public class AppTest {
     public void HandleNonExistentFile_ExpectCorrectPrompt() throws IOException, MalformedInputException {
         before("exit");
         // Arrange
-        String filePath = FileIO.getUniquePath().toString();
+        String filePath = mockFileHandler.getUniquePath().toString();
         App.main(new String[] { filePath });
 
         // Assert
@@ -53,8 +64,8 @@ public class AppTest {
     public void HandleMalformedFile_ExpectCorrectPrompt() throws IOException, MalformedInputException {
         before("exit");
         // Arrange
-        Path filePath = FileIO.getUniquePath();
-        FileIO.write(filePath, new ArrayList<String>(Arrays.asList("A,B,C")));
+        Path filePath = mockFileHandler.getUniquePath();
+        mockFileHandler.write(filePath, new ArrayList<String>(Arrays.asList("A,B,C")));
         App.main(new String[] { filePath.toString() });
 
         // Assert
@@ -71,8 +82,8 @@ public class AppTest {
     public void HandleValidFile_ExpectCorrectPrompt() throws IOException, MalformedInputException {
         before("exit");
         // Arrange
-        Path filePath = FileIO.getUniquePath();
-        FileIO.write(filePath, new ArrayList<String>(Arrays.asList("A,B")));
+        Path filePath = mockFileHandler.getUniquePath();
+        mockFileHandler.write(filePath, new ArrayList<String>(Arrays.asList("A,B")));
         App.main(new String[] { filePath.toString() });
 
         // Assert
@@ -89,17 +100,17 @@ public class AppTest {
     public void HandleBulkFiles_ExpectCorrectOutput() throws IOException, MalformedInputException {
         before("exit");
         // Arrange
-        Path filePath1 = FileIO.getUniquePath();
-        Path filePath2 = FileIO.getUniquePath();
+        Path filePath1 = mockFileHandler.getUniquePath();
+        Path filePath2 = mockFileHandler.getUniquePath();
         App.main(new String[] { filePath1.toString(), filePath2.toString() });
 
         // Assert
 
         assertEquals(String.format("Error caught while sorting %s. Skipped.",
-                FileIO.modifyPathName(filePath1, "%s-sorted.txt"))
+                mockFileHandler.modifyPathName(filePath1, "%s-sorted.txt"))
                 + System.lineSeparator() +
                 String.format("Error caught while sorting %s. Skipped.",
-                        FileIO.modifyPathName(filePath2, "%s-sorted.txt")),
+                        mockFileHandler.modifyPathName(filePath2, "%s-sorted.txt")),
                 outStream.toString().trim());
     }
 
@@ -107,7 +118,7 @@ public class AppTest {
     public void PromptForInput_ExpectCorrectPrompt() {
         before("input message");
         // Arrange
-        String userInput = App.promptForInput("prompt %s", new String[] { "message" }, new Scanner(System.in));
+        String userInput = mockApp.promptForInput("prompt %s", new String[] { "message" }, new Scanner(System.in));
 
         assertEquals(
                 "prompt message",
