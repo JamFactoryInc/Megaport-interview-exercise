@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
-public abstract class App {
+public class App {
 
     public static Path inputFilePath;
     public static Path outputFilePath;
@@ -91,15 +91,9 @@ public abstract class App {
      */
     public void readSortAndWrite(Path input, Path output)
             throws FileNotFoundException, MalformedInputException, IOException {
-<<<<<<< Updated upstream
-        NameList names = NameList.from(FileIO.read(input)).sort();
-        FileIO.write(output, names.toStringArray());
-        System.out.println(String.format("Finished: created '%s'", output.toString()));
-=======
         NameList names = NameList.from(fileHandler.read(input)).sort();
         fileHandler.write(output, names.toStringArray());
         System.out.println(String.format("Finished: created %s", output.toString()));
->>>>>>> Stashed changes
     }
 
     /**

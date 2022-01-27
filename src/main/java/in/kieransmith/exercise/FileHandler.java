@@ -10,19 +10,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 
-<<<<<<< Updated upstream:src/main/java/in/kieransmith/exercise/FileIO.java
-public abstract class FileIO {
-=======
 public class FileHandler {
->>>>>>> Stashed changes:src/main/java/in/kieransmith/exercise/FileHandler.java
 
-    /**
-     * Reads the given path and returns the lines in an ArrayList
-     *
+    /*
+     * * Reads
+     * 
      * @param path the path to read
+     * 
      * @return ArrayList<String> the lines in order
+     * 
      * @throws FileNotFoundException the path given does not exist or is not
-     *                               accessible
+     * accessible
      */
     public ArrayList<String> read(Path path) throws FileNotFoundException {
         ArrayList<String> lines = new ArrayList<String>();
